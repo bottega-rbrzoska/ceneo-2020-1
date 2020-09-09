@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule  } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,7 @@ import { TestComponent } from './test/test.component';
     BrowserModule,
     AppRoutingModule
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })
