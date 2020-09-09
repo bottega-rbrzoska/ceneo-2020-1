@@ -9,6 +9,8 @@ import { Book } from 'src/app/models/book.interface';
 export class BooksItemComponent implements OnInit {
 
   @Input() book: Book;
+
+  showDescription = false;
   constructor() { }
 
   ngOnInit(): void {

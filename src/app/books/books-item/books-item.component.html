@@ -1,1 +1,4 @@
-<div>{{ book.title }} ({{book.pagesCount}})</div>
+<div>{{ book.title }} <span [ngClass]="{'small':book.pagesCount < 200 }">({{book.pagesCount}})</span>
+  <button (click)="showDescription = !showDescription">Toggle Description</button></div>
+<div *ngIf="showDescription">{{book.longDescription}}</div>
+

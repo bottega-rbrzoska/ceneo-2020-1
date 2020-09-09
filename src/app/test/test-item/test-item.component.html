@@ -1,2 +1,6 @@
-<div>{{ testUser.name }} ({{testUser.age}})</div>
+<div>{{ testUser.name }} <span [ngClass]="{ 'isOld': testUser.age > 68}">({{testUser.age}})</span></div>
+<div *ngIf="testUser.admin; else standardUserDescription">IS ADMIN</div>
 <button (click)="handleClick()">Show uppercase</button>
+<ng-template #standardUserDescription>
+  <div>IS STANDARD USER</div>
+</ng-template>
