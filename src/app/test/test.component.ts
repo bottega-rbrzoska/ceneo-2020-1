@@ -19,4 +19,8 @@ export class TestComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleSendName(name) {
+    alert(name);
+  }
+
 }

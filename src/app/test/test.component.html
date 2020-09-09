@@ -1,1 +1,5 @@
-<p class="red">test works!</p>
+<cn-test-item *ngFor="let user of users"
+    [testUser]="user"
+    (sendName)="handleSendName($event)">
+</cn-test-item>
+
