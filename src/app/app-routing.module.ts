@@ -8,6 +8,7 @@ import { TestComponent } from './test/test.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'test', loadChildren: () => import('./test/test.module').then( m => m.TestModule)},
+  { path: 'books', loadChildren: () => import('./books/books.module').then( m => m.BooksModule)},
   { path: 'contact', component: ContactComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
