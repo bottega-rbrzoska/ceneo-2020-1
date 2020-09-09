@@ -8,3 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ceneo-proj';
 }
+
+//selector 'cn-root' ===>  <cn-root></cn-root>
+//selector '[cn-root]' ===> <div cn-root></div>
+//selector '.cn-root' ===> <div class="cn-root"></div>
