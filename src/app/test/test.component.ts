@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { TestUser } from '../models/test-user.interface';
 
 @Component({
   selector: 'cn-test',
@@ -7,6 +8,11 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class TestComponent implements OnInit {
+
+  users: TestUser[] = [
+    { age: 67, name: 'Alojzy' },
+    { age: 69, name: 'Helga', admin: true }
+  ];
 
   constructor() { }
 
