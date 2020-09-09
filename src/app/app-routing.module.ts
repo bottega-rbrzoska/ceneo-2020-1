@@ -7,7 +7,7 @@ import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'test', component: TestComponent },
+  { path: 'test', loadChildren: () => import('./test/test.module').then( m => m.TestModule)},
   { path: 'contact', component: ContactComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
