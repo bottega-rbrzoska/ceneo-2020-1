@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalTestService } from '../core/global-test.service';
 
 @Component({
   selector: 'cn-contact',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(private testService: GlobalTestService) { }
 
   ngOnInit(): void {
+  }
+
+  handleSave(msg) {
+    console.log(msg)
+    this.testService.sendMessage(msg).subscribe(() => alert('message sent. thank you'))
   }
 
 }

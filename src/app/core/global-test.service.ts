@@ -25,4 +25,8 @@ export class GlobalTestService {
     return this.http.post('/api/config', data);
   }
 
+  sendMessage(msg) {
+    return this.http.post('/api/messages', msg)
+  }
+
 }
