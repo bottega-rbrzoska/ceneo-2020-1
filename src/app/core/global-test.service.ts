@@ -21,4 +21,8 @@ export class GlobalTestService {
     });
   }
 
+  saveTestData(data){
+    return this.http.post('/api/config', data);
+  }
+
 }

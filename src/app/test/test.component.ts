@@ -28,4 +28,11 @@ export class TestComponent implements OnInit {
     alert(name);
   }
 
+  handleSave(data) {
+    console.log(data)
+    this.globalTestService.saveTestData(data).subscribe(() => {
+      console.log('done!')
+    });
+  }
+
 }

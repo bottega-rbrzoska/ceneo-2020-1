@@ -1,7 +1,12 @@
 {
-  "config": {
-    "apiUrl": "http://localhost:3000"
-  },
+  "config": [
+    {
+      "test1": "sdfds",
+      "test2": "sdfds",
+      "id": 1
+    }
+  ],
+  "messages": [],
   "books": [
     {
       "id": "1",
