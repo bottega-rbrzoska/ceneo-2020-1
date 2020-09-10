@@ -20,22 +20,22 @@ export class RxTestComponent implements OnInit {
 
     this.latestValue = bSubj.value;
 
-    const evObs = fromEvent(this.myInput.nativeElement, 'input');
-    setTimeout(() => evObs.pipe(map((ev: Event) => (ev.target as HTMLInputElement).value))
+    const evObs$ = fromEvent(this.myInput.nativeElement, 'input');
+    setTimeout(() => evObs$.pipe(map((ev: Event) => (ev.target as HTMLInputElement).value))
     .subscribe(ev => console.log(ev)), 3000);
 
     // this.getPromise().then(res => console.log(res), err => console.log('Error: ' + err))
-    const observ1 = new Observable<string>(obs => {
+    const observ1$ = new Observable<string>(obs => {
       obs.next('val1');
       obs.next('val2');
       obs.next('val3');
       obs.complete();
     });
 
-    const observ2 = of('val1', 'val2', 'val3');
+    const observ2$ = of('val1', 'val2', 'val3');
 
 
-    observ2
+    observ2$
     .pipe(
       tap(v => console.log('Before filter: ' + v)),
       filter(v => v.includes('2')),

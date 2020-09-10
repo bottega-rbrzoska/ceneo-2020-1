@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Observable } from 'rxjs';
 import { GlobalTestService } from '../core/global-test.service';
 import { TestUser } from '../models/test-user.interface';
 
@@ -10,14 +11,14 @@ import { TestUser } from '../models/test-user.interface';
 })
 export class TestComponent implements OnInit {
 
-  config;
+  config$: Observable<any>;
   users: TestUser[] = [
     { age: 67, name: 'Alojzy' },
     { age: 69, name: 'Helga', admin: true }
   ];
 
-  constructor(public globalTestService: GlobalTestService) {
-    this.config = this.globalTestService.getConfig();
+  constructor(private globalTestService: GlobalTestService) {
+    this.config$ = this.globalTestService.getConfig();
    }
 
   ngOnInit(): void {
