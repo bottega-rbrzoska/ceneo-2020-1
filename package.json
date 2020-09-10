@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "run-p start:backend start:server",
-    "start:backend": "json-server db.json",
+    "start:backend": "json-server db.json --port=8080",
     "start:server": "ng serve",
     "build": "ng build",
     "test": "ng test",
