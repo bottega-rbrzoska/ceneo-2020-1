@@ -1,4 +1,8 @@
 {
+  "auth": [
+    { "username": "alojzy", "role": "user" },
+    { "username": "helga", "role": "admin" }
+  ],
   "config": [
     {
       "test1": "sdfds",
