@@ -1,4 +1,6 @@
-<div>{{ book.title }} <span [ngClass]="{'small':book.pagesCount < 200 }">({{book.pagesCount}})</span>
-  <button (click)="showDescription = !showDescription">Toggle Description</button></div>
+<div class="list-group-item d-flex flex-row justify-content-between">
+  <div>
+    {{ book.title }} <span [ngClass]="{'small':book.pagesCount < 200 }">({{book.pagesCount}})</span>
+  </div>
+  <button class="btn btn-sm btn-info" (click)="showDescription = !showDescription">Toggle Description</button></div>
 <div *ngIf="showDescription">{{book.longDescription}}</div>
-
