@@ -1,36 +1,24 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Book } from '../models/book.interface';
 
 @Injectable()
 export class BooksService {
 
-  private books: Book[] = [
-    {
-      id: '1',
-      title: 'boobowwwwww wwwwswswsokk1',
-      pagesCount: 100,
-      longDescription: 'Opis bowwwwww wwwwswswsok 1'
-    },
-    {
-      id: '2',
-      title: 'boasdasdsa asdsadok2',
-      pagesCount: 200,
-      longDescription: 'Opis book 2'
-    },
-    {
-      id: '3',
-      title: 'boowwsswwwwwsswswsk3',
-      pagesCount: 300,
-      longDescription: 'Opis book 3'
-    }
-  ];
-  constructor() { }
+  private books: Book[] = [];
+  constructor(private http: HttpClient) { }
 
-  getAllBooks(): Book[] {
-    return this.books;
+  getAllBooks(): Observable<Book[]> {
+    return this.http.get<Book[]>('/api/books');
   }
 
-  filterBooks(query): Book[] {
-    return this.books.filter(b => b.title.includes(query));
+  filterBooks(query): Observable<Book[]> {
+
+    return this.http.get<Book[]>('/api/books', {
+      params: {
+        q: query
+      }
+    });
   }
 }
