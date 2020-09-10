@@ -7,19 +7,19 @@ export class BooksService {
   private books: Book[] = [
     {
       id: '1',
-      title: 'book1',
+      title: 'boobowwwwww wwwwswswsokk1',
       pagesCount: 100,
-      longDescription: 'Opis book 1'
+      longDescription: 'Opis bowwwwww wwwwswswsok 1'
     },
     {
       id: '2',
-      title: 'book2',
+      title: 'boasdasdsa asdsadok2',
       pagesCount: 200,
       longDescription: 'Opis book 2'
     },
     {
       id: '3',
-      title: 'book3',
+      title: 'boowwsswwwwwsswswsk3',
       pagesCount: 300,
       longDescription: 'Opis book 3'
     }
@@ -28,5 +28,9 @@ export class BooksService {
 
   getAllBooks(): Book[] {
     return this.books;
+  }
+
+  filterBooks(query): Book[] {
+    return this.books.filter(b => b.title.includes(query));
   }
 }

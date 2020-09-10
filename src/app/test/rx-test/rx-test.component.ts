@@ -21,7 +21,7 @@ export class RxTestComponent implements OnInit {
     this.latestValue = bSubj.value;
 
     const evObs = fromEvent(this.myInput.nativeElement, 'input');
-    setTimeout(() => evObs.pipe(map((ev: any) => (ev.target as HTMLInputElement).value))
+    setTimeout(() => evObs.pipe(map((ev: Event) => (ev.target as HTMLInputElement).value))
     .subscribe(ev => console.log(ev)), 3000);
 
     // this.getPromise().then(res => console.log(res), err => console.log('Error: ' + err))
