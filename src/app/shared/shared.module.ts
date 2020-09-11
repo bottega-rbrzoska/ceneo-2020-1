@@ -7,6 +7,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { TestPipe } from './test.pipe';
 import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
+import { SharedUiModule } from 'shared-ui';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CardComponent } from './card/card.component';
     TestPipe,
     ButtonsModule,
     ButtonComponent,
-    CardComponent
+    CardComponent,
+    SharedUiModule
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,6 @@
+<div *ngIf="show">
+  <ul class="list">
+    <li *ngFor="let item of items">{{ item }}</li>
+  </ul>
+</div>
+<button (click)="toggleShow()">Toggle</button>

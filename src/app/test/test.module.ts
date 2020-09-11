@@ -11,10 +11,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
+import { ExampleComponent } from './example/example.component';
 
 
 @NgModule({
-  declarations: [TestComponent, TestItemComponent, TestDetailsComponent, RxTestComponent, TestFormComponent, ParentComponent, ChildComponent],
+  declarations: [TestComponent, TestItemComponent, TestDetailsComponent, RxTestComponent, TestFormComponent, ParentComponent, ChildComponent, ExampleComponent],
   imports: [
     CommonModule,
     TestRoutingModule,

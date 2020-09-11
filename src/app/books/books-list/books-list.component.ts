@@ -1,7 +1,7 @@
 import { AfterContentInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Book } from '@ceneoapp/models/book.interface';
 import { fromEvent, Observable } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
-import { Book } from 'src/app/models/book.interface';
 import { SelectDirective } from 'src/app/shared/select.directive';
 import { BooksItemComponent } from '../books-item/books-item.component';
 import { BooksService } from '../books.service';

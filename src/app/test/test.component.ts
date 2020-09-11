@@ -18,7 +18,7 @@ export class TestComponent implements OnInit {
       name: 'prod2',
       price: 2.99
     }
-  ]
+  ];
   checkModel: any = { left: false, middle: true, right: false };
   showTestContainer = false;
   config$: Observable<any>;
