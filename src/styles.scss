@@ -4,3 +4,8 @@
 .ng-invalid:not(form).ng-touched {
   border: red solid 2px;
 }
+
+.my-select, .select {
+  display: block;
+  border: 2px solid crimson;
+}

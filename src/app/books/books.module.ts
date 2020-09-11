@@ -6,13 +6,15 @@ import { BooksListComponent } from './books-list/books-list.component';
 import { BooksDetailsComponent } from './books-details/books-details.component';
 import { BooksItemComponent } from './books-item/books-item.component';
 import { BooksService } from './books.service';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [BooksListComponent, BooksDetailsComponent, BooksItemComponent],
   imports: [
     CommonModule,
-    BooksRoutingModule
+    BooksRoutingModule,
+    SharedModule
   ],
   providers: [BooksService]
 })

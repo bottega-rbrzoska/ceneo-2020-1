@@ -5,7 +5,7 @@
 </div>
 
 <div class="list-group">
-  <cn-books-item *ngFor="let book of books$ | async"
+  <cn-books-item cnSelect="my-select" *ngFor="let book of books$ | async"
   [book]="book">
 </cn-books-item>
 </div>
