@@ -3,8 +3,9 @@
     (sendName)="handleSendName($event)">
 </cn-test-item>
 
-<code>
+<code cnOnlyForAdmin>
   {{config$ | async | json}}
 </code>
-<div cnTest="red" cnTestBorderColor="blue" *cnMyStruct="false">Test text</div>
+<button type="button" class="btn btn-primary" (click)="showTestContainer = !showTestContainer">ToggleCOntainer</button>
+<div cnTest="red" cnTestBorderColor="blue" *cnMyStruct="showTestContainer">Test text</div>
 <cn-test-form (save)="handleSave($event)"></cn-test-form>

@@ -10,6 +10,7 @@ import { TestUser } from '../models/test-user.interface';
 })
 export class TestComponent implements OnInit {
 
+  showTestContainer = false;
   config$: Observable<any>;
   users: TestUser[] = [
     { age: 67, name: 'Alojzy' },
