@@ -6,8 +6,7 @@ import { TestUser } from '../models/test-user.interface';
 @Component({
   selector: 'cn-test',
   templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
 

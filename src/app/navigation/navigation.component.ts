@@ -11,8 +11,10 @@ import { AuthState } from '../models/authState.interface';
 export class NavigationComponent implements OnInit {
 
   authState$: Observable<AuthState>;
+  isAdmin$: Observable<boolean>;
   constructor(private auth: AuthService) {
     this.authState$ = auth.authState$;
+    this.isAdmin$ = auth.isAdmin$;
   }
 
   ngOnInit(): void {

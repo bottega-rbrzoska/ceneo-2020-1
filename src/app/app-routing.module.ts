@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'test', loadChildren: () => import('./test/test.module').then( m => m.TestModule)},
   { path: 'books', loadChildren: () => import('./books/books.module').then( m => m.BooksModule)},
-  { path: 'contact', component: ContactComponent, canActivate:[AuthGuard] },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then( m => m.AdminModule), canActivate: [AuthGuard]},
+  { path: 'contact', component: ContactComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
