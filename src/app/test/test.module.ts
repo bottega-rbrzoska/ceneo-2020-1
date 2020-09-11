@@ -8,6 +8,7 @@ import { TestDetailsComponent } from './test-details/test-details.component';
 import { RxTestComponent } from './rx-test/rx-test.component';
 import { TestFormComponent } from './test-form/test-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     TestRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class TestModule { }
