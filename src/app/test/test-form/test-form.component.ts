@@ -1,10 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'cn-test-form',
   templateUrl: './test-form.component.html',
-  styleUrls: ['./test-form.component.scss']
+  styleUrls: ['./test-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TestFormComponent implements OnInit {
 
@@ -17,9 +18,11 @@ export class TestFormComponent implements OnInit {
     }, [Validators.maxLength(10)])
   });
 
+
   constructor() { }
 
   ngOnInit(): void {
+
     this.myReactiveForm.controls.test1.statusChanges.subscribe(status => {
       if (status === 'VALID') {
         this.myReactiveForm.controls.test2.enable();
@@ -41,6 +44,11 @@ export class TestFormComponent implements OnInit {
 
   myCustomValidator(control: AbstractControl) {
     return control.value && control.value.includes('0') ? { hasZero: true } : null;
+  }
+
+  test(): string {
+    console.log('test');
+    return 'test';
   }
 
 }

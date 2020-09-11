@@ -9,3 +9,15 @@
 <button type="button" class="btn btn-primary" (click)="showTestContainer = !showTestContainer">ToggleCOntainer</button>
 <div cnTest="red" cnTestBorderColor="blue" *cnMyStruct="showTestContainer">Test text</div>
 <cn-test-form (save)="handleSave($event)"></cn-test-form>
+<pre class="card card-block card-header">{{checkModel | json}}</pre>
+
+<div class="btn-group">
+  <label class="btn btn-primary" [(ngModel)]="checkModel.left"
+         btnCheckbox tabindex="0" role="button">Left</label>
+  <label class="btn btn-primary" [(ngModel)]="checkModel.middle"
+         btnCheckbox tabindex="0" role="button">Middle</label>
+  <label class="btn btn-primary" [(ngModel)]="checkModel.right"
+         btnCheckbox tabindex="0" role="button">Right</label>
+</div>
+
+<cn-parent></cn-parent>

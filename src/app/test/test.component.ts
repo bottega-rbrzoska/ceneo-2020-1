@@ -9,7 +9,7 @@ import { TestUser } from '../models/test-user.interface';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-
+  checkModel: any = { left: false, middle: true, right: false };
   showTestContainer = false;
   config$: Observable<any>;
   users: TestUser[] = [

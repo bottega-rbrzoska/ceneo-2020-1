@@ -4,7 +4,7 @@ import { Directive, Input, OnInit, SimpleChanges, TemplateRef, ViewContainerRef 
 @Directive({
   selector: '[cnMyStruct]'
 })
-export class MyStructDirective implements OnInit {
+export class MyStructDirective {
 
   @Input()
   set cnMyStruct(isVisible: boolean){
