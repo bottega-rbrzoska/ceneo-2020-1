@@ -7,9 +7,7 @@ export class SelectDirective {
   private isSelected = false;
   @Input('cnSelect') className: string;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {
-    console.log('init')
-  }
+  constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   @HostListener('click')
   handleClick(): void {

@@ -3,9 +3,12 @@
   <input type="text"
     class="form-control" #searchInput>
 </div>
-
+<button type="button" (click)="toggleSelections()" class="btn btn-primary mr-2">Toggle selections</button>
+<button type="button" (click)="toggleAllDescriptions()" class="btn btn-primary">Toggle descriptions</button>
 <div class="list-group">
   <cn-books-item cnSelect="my-select" *ngFor="let book of books$ | async"
   [book]="book">
 </cn-books-item>
+
+
 </div>
