@@ -21,3 +21,13 @@
 </div>
 
 <cn-parent></cn-parent>
+===============
+
+===========
+<cn-card>
+  <span class="title">Product list</span>
+  <div class="list-group">
+    <div *ngFor="let product of products"
+    class="list-group-item">{{product.name}}  ({{product.price | test:3}})</div>
+  </div>
+</cn-card>

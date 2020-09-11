@@ -34,7 +34,7 @@
           <span *ngIf="myReactiveForm.controls.test2?.errors" class="alert alert-danger">Za dużo tekstu!</span>
 
       </div>
-      <button class="btn btn-danger">Submit</button>
+      <cn-button type="danger">Submit</cn-button>
     </form>
     <code>{{myReactiveForm.controls.test1.errors | json}}</code>
     <code>{{myReactiveForm.controls.test2.errors | json}}</code>

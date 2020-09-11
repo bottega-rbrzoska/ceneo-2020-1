@@ -4,10 +4,13 @@ import { TestDirective } from './test.directive';
 import { SelectDirective } from './select.directive';
 import { MyStructDirective } from './my-struct.directive';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { TestPipe } from './test.pipe';
+import { ButtonComponent } from './button/button.component';
+import { CardComponent } from './card/card.component';
 
 
 @NgModule({
-  declarations: [TestDirective, SelectDirective, MyStructDirective],
+  declarations: [TestDirective, SelectDirective, MyStructDirective, TestPipe, ButtonComponent, CardComponent],
   imports: [
     CommonModule,
     ButtonsModule
@@ -16,7 +19,10 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     TestDirective,
     SelectDirective,
     MyStructDirective,
-    ButtonsModule
+    TestPipe,
+    ButtonsModule,
+    ButtonComponent,
+    CardComponent
   ]
 })
 export class SharedModule { }

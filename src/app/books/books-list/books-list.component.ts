@@ -13,13 +13,15 @@ import { BooksService } from '../books.service';
 })
 export class BooksListComponent implements OnInit, AfterContentInit {
 
-  @ViewChildren(SelectDirective) selectDirectives: QueryList<SelectDirective>;
   @ViewChildren(BooksItemComponent) bookItems: QueryList<BooksItemComponent>;
 
   @ViewChild('searchInput', { static: true }) input: ElementRef;
     books$: Observable<Book[]>;
+    isLoading$;
   constructor(private booksService: BooksService) {
-    this.books$ = booksService.getAllBooks();
+    this.books$ = booksService.booksList$;
+    this.isLoading$ = booksService.isLoading$;
+    this.booksService.fetchBooks();
   }
 
   ngOnInit(): void {
@@ -27,18 +29,14 @@ export class BooksListComponent implements OnInit, AfterContentInit {
     .pipe(
       debounceTime(400),
       map((ev: Event) => (ev.target as HTMLInputElement).value))
-    .subscribe(q => this.books$ = this.booksService.filterBooks(q));
+    .subscribe(q => this.booksService.fetchBooks(q));
   }
 
   ngAfterContentInit() {
     // this.bookItems.changes.subscribe(c => console.log(c))
   }
 
-  toggleSelections() {
-    this.selectDirectives.forEach(selectDirective => {
-      selectDirective.handleClick();
-    });
-  }
+
 
   toggleAllDescriptions() {
     this.bookItems.forEach(b => b.showDescription = !b.showDescription);

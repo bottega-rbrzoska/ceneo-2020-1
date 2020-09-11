@@ -9,6 +9,16 @@ import { TestUser } from '../models/test-user.interface';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
+  products = [
+    {
+      name: 'prod1',
+      price: 1.99
+    },
+    {
+      name: 'prod2',
+      price: 2.99
+    }
+  ]
   checkModel: any = { left: false, middle: true, right: false };
   showTestContainer = false;
   config$: Observable<any>;
