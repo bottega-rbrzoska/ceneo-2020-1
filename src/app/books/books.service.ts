@@ -21,18 +21,21 @@ export class BooksService {
   bookState$ = this.bookStateSubj.asObservable();
   booksList$ = this.bookState$.pipe(
     map((state) => state.booksList),
-    distinctUntilChanged(),
-    tap((v) => console.log('new booklist', v))
-    );
+    distinctUntilChanged()
+  );
   isLoading$ = this.bookState$.pipe(
     map((state) => state.isLoading),
-    distinctUntilChanged(),
-    tap((v) => console.log('new loading',v)));
+    distinctUntilChanged()
+  );
   loadError$ = this.bookState$.pipe(
     map((state) => state.loadError),
-    distinctUntilChanged(),
-    tap((v) => console.log('new error',v)));
+    distinctUntilChanged()
+  );
 
+  selectedBook$ = this.bookState$.pipe(
+    map((state) => state.selectedBook),
+    distinctUntilChanged()
+  );
   private books: Book[] = [];
   constructor(private http: HttpClient) {}
 
@@ -40,24 +43,58 @@ export class BooksService {
     const currentState = this.bookStateSubj.value;
     const newState = { ...currentState, ...state };
     this.bookStateSubj.next(newState);
-    this.stateHistory.push({action: actionName, state: newState });
+    this.stateHistory.push({ action: actionName, state: newState });
     console.log(this.stateHistory);
   }
 
+  fetchBookById(id: string) {
+    this.setState({ isLoading: true }, 'FETCH_BOOK');
+    this.http
+      .get<Book>('/api/books/' + id)
+      .subscribe(
+        (book) => {
+          this.setState(
+            { selectedBook: book, isLoading: false },
+            'FETCH_BOOK_SUCCESS'
+          );
+        },
+        () =>
+          this.setState(
+            {
+              loadError: 'Cannot load book details. Try again later.',
+              isLoading: false,
+            },
+            'FETCH_BOOK_ERROR'
+          )
+      );
+  }
 
   fetchBooks(query = '') {
     this.setState({ isLoading: true }, 'FETCH_BOOKS');
 
-    this.http.get<Book[]>('/api/books', {
-      params: {
-        q: query,
-      },
-    }).subscribe(books => {
-      this.setState({ booksList: books, isLoading: false}, 'FETCH_BOOKS_SUCCESS');
-    }, () => this.setState({ loadError: 'Cannot load books. Try again later.', isLoading: false}, 'FETCH_BOOKS_ERROR'));
+    this.http
+      .get<Book[]>('/api/books', {
+        params: {
+          q: query,
+        },
+      })
+      .subscribe(
+        (books) => {
+          this.setState(
+            { booksList: books, isLoading: false },
+            'FETCH_BOOKS_SUCCESS'
+          );
+        },
+        () =>
+          this.setState(
+            {
+              loadError: 'Cannot load books. Try again later.',
+              isLoading: false,
+            },
+            'FETCH_BOOKS_ERROR'
+          )
+      );
   }
-
-
 
   getAllBooks(): Observable<Book[]> {
     return this.http.get<Book[]>('/api/books');

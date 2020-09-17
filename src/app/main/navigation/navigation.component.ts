@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AuthService } from '../core/auth.service';
-import { AuthState } from '../models/authState.interface';
+import { AuthService } from '../../core/auth.service';
+import { AuthState } from '../../models/authState.interface';
 
 @Component({
   selector: 'cn-navigation',
@@ -12,6 +12,7 @@ export class NavigationComponent implements OnInit {
 
   authState$: Observable<AuthState>;
   isAdmin$: Observable<boolean>;
+
   constructor(private auth: AuthService) {
     this.authState$ = auth.authState$;
     this.isAdmin$ = auth.isAdmin$;

@@ -1,3 +1,4 @@
+import { async, fakeAsync, tick, waitForAsync } from '@angular/core/testing';
 import { TestFormComponent } from "./test-form.component";
 
 describe('TestFormComponent', () => {
@@ -13,10 +14,9 @@ describe('TestFormComponent', () => {
       expect(component.myReactiveForm.getRawValue()).toEqual({ test1: null, test2: null});
     });
     it('should be valid with given values', () => {
-      component.myReactiveForm.patchValue({ test1: '111'});
-      component.myReactiveForm.patchValue({ test2: '333'});
-      // finish test
-      console.log(component.myReactiveForm.controls.test2.status);
+      component.ngOnInit();
+      component.myReactiveForm.setValue({ test1: '111', test2: '333'});
+
       expect(component.myReactiveForm.value).toEqual({ test1: '111', test2: '333'});
       expect(component.myReactiveForm.valid).toBeTrue();
     });

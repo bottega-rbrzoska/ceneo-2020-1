@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalTestService } from '../core/global-test.service';
+import { GlobalTestService } from '../../core/global-test.service';
 
 @Component({
   selector: 'cn-contact',

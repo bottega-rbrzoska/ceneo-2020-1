@@ -9,7 +9,7 @@ export class MyStructDirective {
   @Input()
   set cnMyStruct(isVisible: boolean){
     if (isVisible) {
-      this.vcr.createEmbeddedView(this.template)
+      this.vcr.createEmbeddedView(this.template);
     } else {
       this.vcr.clear();
     }

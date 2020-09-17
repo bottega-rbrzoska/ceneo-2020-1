@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-expand navbar-dark bg-primary d-flex flex-row justify-content-between">
   <div>
     <a class="navbar-brand" href="#">Ceneo app</a>
@@ -5,8 +7,15 @@
       <a class="nav-item nav-link" routerLink="/">Home </a>
       <a class="nav-item nav-link" routerLink="/books">Books </a>
       <a class="nav-item nav-link" routerLink="/contact">Contact </a>
-      <a class="nav-item nav-link" routerLink="/test">Test </a>
-      <a class="nav-item nav-link" routerLink="/test/rx">Rx Test </a>
+      <div class="btn-group" dropdown>
+        <button dropdownToggle type="button" class="btn btn-link nav-item nav-link">
+          Tests <span class="caret"></span>
+        </button>
+        <ul *dropdownMenu class="dropdown-menu">
+          <li role="menuitem"><a class="dropdown-item"  routerLink="/test">Test </a></li>
+          <li role="menuitem"><a class="dropdown-item" routerLink="/test/rx">Rx Test </a></li>
+        </ul>
+      </div>
       <a *ngIf="isAdmin$ | async" class="nav-item nav-link" routerLink="/admin">Admin</a>
     </div>
   </div>

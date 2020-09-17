@@ -3,4 +3,5 @@ export interface Book {
   title: string;
   pagesCount: number;
   longDescription: string;
+  thumbnailUrl: string;
 }

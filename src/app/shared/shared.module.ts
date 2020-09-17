@@ -8,13 +8,16 @@ import { TestPipe } from './test.pipe';
 import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
 import { SharedUiModule } from 'shared-ui';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
 @NgModule({
   declarations: [TestDirective, SelectDirective, MyStructDirective, TestPipe, ButtonComponent, CardComponent],
   imports: [
     CommonModule,
-    ButtonsModule
+    ButtonsModule,
+    SharedUiModule,
+    BsDropdownModule
   ],
   exports: [
     TestDirective,
@@ -24,7 +27,8 @@ import { SharedUiModule } from 'shared-ui';
     ButtonsModule,
     ButtonComponent,
     CardComponent,
-    SharedUiModule
+    SharedUiModule,
+    BsDropdownModule
   ]
 })
-export class SharedModule { }
+export class SharedModule {}
